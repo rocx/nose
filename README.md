@@ -76,3 +76,25 @@ For collecting a single element, it's better to use
 
 ;; Hope you have good evasion saving rolls, puny elf!
 ~~~
+
+## `nose-subseq`
+
+Returns a subsequence of a collection.
+
+### To-Do List ###
+
+- [X] Optional END argument
+- [ ] Handle negative arguments
+
+### Usage ###
+
+~~~emacs-lisp
+(nose-subseq COLLECTION START &optional END)
+
+(let ((tens (number-sequence 0 9)))
+  (list
+   (nose-subseq tens 4)
+   (nose-subseq tens 2 8)))
+;; => ((4 5 6 7 8 9) (2 3 4 5 6 7))
+;; A demonstration of missing END and included END.
+~~~

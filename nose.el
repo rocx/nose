@@ -46,6 +46,13 @@ For collecting a single element, `nose-pick' it is advised to use
 `nose-pick' instead."
   (mapcar #'nose-pick (make-list (or amount 1) collection)))
 
+(defun nose-subseq (collection start &optional end)
+  "Return a subsequence of the COLLECTION from START to END.
+If END is nil, return the collection starting from the index START.
+Does not function with negative numbers like `cl-subseq' can."
+  (if (null end) (nthcdr start collection)
+    (butlast (nthcdr start collection) (- (length collection) end))))
+
 (provide 'nose)
 
 ;;; nose.el ends here
