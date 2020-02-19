@@ -3,7 +3,7 @@
 ;; Copyright (C) 2020 Box O'Rocks
 
 ;; Author: Box O'Rocks <rocx@rocx.rocks>
-;; Version: 0.1.0
+;; Version: 0.1.7
 ;; Homepage: https://github.com/rocx/nose
 
 ;; This file is NOT part of GNU Emacs.
@@ -53,6 +53,13 @@ Does not function with negative numbers like `cl-subseq' can."
   (if (null end) (nthcdr start collection)
     (butlast (nthcdr start collection) (- (length collection) end))))
 
+(defun nose-remove-nth (collection index)
+  "Remove the Nth element from COLLECTION."
+  (if (zerop index) (cdr collection)
+    (append
+     (nose-subseq collection 0 index)
+     (nose-subseq collection (1+ index)))))
+     
 (provide 'nose)
 
 ;;; nose.el ends here

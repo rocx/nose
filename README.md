@@ -98,3 +98,18 @@ Returns a subsequence of a collection.
 ;; => ((4 5 6 7 8 9) (2 3 4 5 6 7))
 ;; A demonstration of missing END and included END.
 ~~~
+
+## `nose-remove-nth`
+
+Remove the nth element from a collection.
+
+### Usage ###
+
+~~~emacs-lisp
+(nose-remove-nth COLLECTION INDEX)
+
+(let ((not-stooges '(eeny meeny miney curly moe)))
+  ;; Uh wait a minute, index 3 doesn't look right!
+  (nose-remove-nth not-stooges 3))
+;; => (eeny meeny miney moe)
+~~~
