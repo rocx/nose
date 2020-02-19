@@ -38,6 +38,14 @@
   "Returns a random element from COLLECTION."
   (elt collection (nose-random-index collection)))
 
+(defun nose-sample (collection &optional amount)
+  "Collect an AMOUNT of elements from COLLECTION with replacement.
+If AMOUNT is nil, only collect one element.
+
+For collecting a single element, `nose-pick' it is advised to use
+`nose-pick' instead."
+  (mapcar #'nose-pick (make-list (or amount 1) collection)))
+
 (provide 'nose)
 
 ;;; nose.el ends here

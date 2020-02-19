@@ -50,3 +50,29 @@ Returns a random element from the collection.
 (d 6 3) ; Roll 3d6, or three six-sided dice and tally the sum.
 ;; => 13, for example
 ~~~
+
+## `nose-sample`
+
+Returns a sample of elements from a collection.
+These elements are collected into a list and has a length of the
+amount given.
+If `amount` is nil, only one element is collected.
+
+For collecting a single element, it's better to use
+[`nose-pick`](#nose-pick) unless you need it in a list.
+
+### Usage ###
+
+~~~emacs-lisp
+(nose-sample COLLECTION &optional AMOUNT)
+
+;; Let's say I'm some hideous dæmon with three swords that can perform
+;; three attacks per round.
+;; I wonder who shall fall victim to my thirsty blade...
+
+(let ((party '(fighter thief magic-user dwarf elf)))
+  (nose-sample party 3))
+;; => (magic-user elf elf), for example
+
+;; Hope you have good evasion saving rolls, puny elf!
+~~~
