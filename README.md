@@ -77,6 +77,33 @@ For collecting a single element, it's better to use
 ;; Hope you have good evasion saving rolls, puny elf!
 ~~~
 
+## `nose-sample*`
+
+Returns a sample of elements from a collection *without* replacement.
+These elements are collected into a list and has a length of the
+amount given.
+If `amount` is nil, only one element is collected.
+
+For collecting a single element, it's better to use
+[`nose-pick`](#nose-pick) unless you need it in a list.
+
+### Usage ###
+
+~~~emacs-lisp
+(nose-sample* COLLECTION &optional AMOUNT)
+
+(setq party '(fighter thief magic-user dwarf elf))
+
+;; Sample, but using the whole party.
+(nose-sample* '(fighter thief magic-user dwarf elf) 5)
+;; => (elf dwarf magic-user fighter thief)
+;; Guaranteed no repeats!
+;; Well, unless your collection itself has repeats.
+
+(nose-sample* '(fighter thief magic-user dwarf elf) 3)
+;; => (fighter magic-user dwarf)
+~~~
+
 ## `nose-subseq`
 
 Returns a subsequence of a collection.

@@ -3,7 +3,7 @@
 ;; Copyright (C) 2020 Box O'Rocks
 
 ;; Author: Box O'Rocks <rocx@rocx.rocks>
-;; Version: 0.1.7
+;; Version: 0.1.8
 ;; Homepage: https://github.com/rocx/nose
 
 ;; This file is NOT part of GNU Emacs.
@@ -45,6 +45,16 @@ If AMOUNT is nil, only collect one element.
 For collecting a single element, `nose-pick' it is advised to use
 `nose-pick' instead."
   (mapcar #'nose-pick (make-list (or amount 1) collection)))
+
+(defun nose-sample* (collection &optional amount)
+  "Collect an AMOUNT of elements from COLLECTION without replacement.
+If AMOUNT is nil, only collect one element."
+  (let ((grab-bag (copy-tree collection))
+	(results '()))
+    (dotimes (_ (or amount 1) results)
+      (let ((chosen (nose-random-index grab-bag)))
+	(push (elt grab-bag chosen) results)
+	(setq grab-bag (nose-remove-nth grab-bag chosen))))))
 
 (defun nose-subseq (collection start &optional end)
   "Return a subsequence of the COLLECTION from START to END.
