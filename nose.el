@@ -30,8 +30,6 @@
 
 ;;; Code:
 
-;;; nose.el ends here
-
 (defun nose-random-index (collection)
   "Returns a number between 0 and the length of COLLECTION."
   (random (length collection)))
@@ -41,3 +39,5 @@
   (elt collection (nose-random-index collection)))
 
 (provide 'nose)
+
+;;; nose.el ends here
