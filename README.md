@@ -154,4 +154,5 @@ function to generate values instead of static ones.
 
 ;; Create a list of 6 rolls of 3d6.
 (nose-genlist 6 (lambda () (d 6 3)))
+;; => eg. (12 14 7 10 15 15)
 ~~~
