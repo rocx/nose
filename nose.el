@@ -69,7 +69,14 @@ Does not function with negative numbers like `cl-subseq' can."
     (append
      (nose-subseq collection 0 index)
      (nose-subseq collection (1+ index)))))
+
+(defun nose-genlist (length func)
+  "Like `make-list', but for computed values instead of static values.
+
+FUNC should not have any arguments as they will not be used."
+  (mapcar #'funcall (make-list length func)))
      
 (provide 'nose)
 
 ;;; nose.el ends here
+

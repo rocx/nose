@@ -140,3 +140,18 @@ Remove the nth element from a collection.
   (nose-remove-nth not-stooges 3))
 ;; => (eeny meeny miney moe)
 ~~~
+
+## `nose-genlist`
+
+Generates a list of values returned from a function.
+Similar to [`make-list`][elisp:make-list], but for using a
+function to generate values instead of static ones.
+
+[elisp:make-list]: https://www.gnu.org/software/emacs/manual/html_node/elisp/Building-Lists.html
+
+~~~emacs-lisp
+(nose-genlist LENGTH FUNC)
+
+;; Create a list of 6 rolls of 3d6.
+(nose-genlist 6 (lambda () (d 6 3)))
+~~~
