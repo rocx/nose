@@ -4,6 +4,7 @@
 
 ;; Author: Box O'Rocks <rocx@rocx.rocks>
 ;; Version: 0.1.8
+;; Package-Version: 20200221.1924
 ;; Homepage: https://github.com/rocx/nose
 
 ;; This file is NOT part of GNU Emacs.
@@ -31,11 +32,11 @@
 ;;; Code:
 
 (defun nose-random-index (collection)
-  "Returns a number between 0 and the length of COLLECTION."
+  "Return a number between 0 and the length of COLLECTION."
   (random (length collection)))
 
 (defun nose-pick (collection)		; heh heh heh
-  "Returns a random element from COLLECTION."
+  "Return a random element from COLLECTION."
   (elt collection (nose-random-index collection)))
 
 (defun nose-sample (collection &optional amount)
@@ -64,19 +65,18 @@ Does not function with negative numbers like `cl-subseq' can."
     (butlast (nthcdr start collection) (- (length collection) end))))
 
 (defun nose-remove-nth (collection index)
-  "Remove the Nth element from COLLECTION."
+  "Remove the an element at INDEX in COLLECTION."
   (if (zerop index) (cdr collection)
     (append
      (nose-subseq collection 0 index)
      (nose-subseq collection (1+ index)))))
 
 (defun nose-genlist (length func)
-  "Like `make-list', but for computed values instead of static values.
+  "Generate a list of LENGTH elements long with a value from computing FUNC.
 
-FUNC should not have any arguments as they will not be used."
+FUNC should not have any arguments."
   (mapcar #'funcall (make-list length func)))
      
 (provide 'nose)
 
 ;;; nose.el ends here
-
