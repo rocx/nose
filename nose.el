@@ -1,4 +1,4 @@
-;;; nose.el --- Pick and select elements from lists
+;;; nose.el --- Pick and select elements from lists -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020 Box O'Rocks
 
@@ -6,6 +6,7 @@
 ;; Version: 0.1.8
 ;; Package-Version: 20200221.1924
 ;; Homepage: https://github.com/rocx/nose
+;; Package-Requires: ((emacs "24.1"))
 
 ;; This file is NOT part of GNU Emacs.
 
