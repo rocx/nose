@@ -1,3 +1,7 @@
+> [!WARNING]
+> This was originally written before discovering
+> [`seq-random-elt`](https://www.gnu.org/software/emacs/manual/html_node/elisp/Sequence-Functions.html#index-seq_002drandom_002delt).
+
 # 👃☝ Nose - Picker of Lists
 
 Nose is a small, freshly-shaven yak to grab random elements from a
